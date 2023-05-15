@@ -1,0 +1,79 @@
+<style>
+    .form-floating {
+        --bs-text-opacity: 1;
+        color: var(--bs-secondary-color) !important;
+    }
+
+    .background-jumbo {
+        background-image: url('https://tse1.mm.bing.net/th?id=OIP.KpW8v33xdpgcM0kAo-z0gwHaCe&pid=Api&P=0');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .jumbotron-form {
+        -webkit-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
+        -moz-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
+        box-shadow: 5px 6px 10px 0px rgba(44, 44, 44, 0.82);
+        text-align: center;
+        color: black;
+    }
+
+    @media screen and (min-width: 768px) {
+        .profile-logged {
+            border-radius: 100%;
+        }
+
+    }
+
+    @media screen and (max-width: 767px) {
+        .profile-logged {
+            border-radius: 100%;
+            position: relative;
+            top: 0;
+        }
+    }
+</style>
+<div class="row d-flex d-sx-none">
+    <div class="col background-jumbo">
+        <div class="row align-items-center g-lg-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-1 fw-bold lh-1 mb-3" style="color: aliceblue;">Sagpic</h1>
+                <p class="col-lg-10 fs-4" style="color: aliceblue;">Tu sitio de lectura</p>
+            </div>
+            {{#if loggedIn}}
+            <div class="col-md-10 mx-auto col-lg-5">
+                <div class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form">
+                    <img class="profile-logged" width="150" height="150"
+                        src="https://media.licdn.com/dms/image/C4E03AQGMl5F_PwU8rQ/profile-displayphoto-shrink_800_800/0/1617134969799?e=2147483647&v=beta&t=WWPJj4uKNfxUHbtjOfXmD_Mxq8tyEQzRWAsVvrALkWw" alt="">
+                    <h3 class="">Actualmente leyendo</h3>
+                    <ul style="text-align-last: start;">
+                        <li>...</li>
+                        <li>...</li>
+                        <li>...</li>
+                    </ul>
+                </div>
+            </div>
+            {{else}}
+            <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Email</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label class="text-muted">
+                            <input type="checkbox" value="remember-me"> Recuerdame
+                        </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+                    <hr class="my-4">
+                </form>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<style>
+    .dropdown-item:hover {
+        display: block;
+        margin-top: 0;
+        /* remove the gap so it doesn't close */
+        background-color: rgb(180, 180, 180);
+        border-radius: 15px;
+    }
+</style>
+<ul class="dropdown-menu">
+    <li>
+        <div class="row">
+            <div class="col-sm-12 col-lg-9">
+                <div class="row">
+                    {{#each genresMenu}}
+                    <div class="col-sm-2 col-lg-2">
+                        <a class="dropdown-item" href="/g/{{this.name}}"><img src="{{icon}}" width="32">
+                            {{this.name}}</a>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-lg-3">
+                a
+            </div>
+        </div>
+    </li>
+</ul>

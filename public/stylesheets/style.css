@@ -1,0 +1,46 @@
+body {}
+
+a {
+  color: #00B7FF;
+}
+
+.navbar {}
+
+.sideBar {
+  background-color: #00B7FF;
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.cont {
+  background-color: beige;
+  max-height: 95vh;
+  height: 95vh;
+  overflow-y: auto;
+  scrollbar-color: #4444;
+  padding: 0;
+  margin: 0;
+
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.row {
+  padding: 0;
+  margin: 0;
+
+}
