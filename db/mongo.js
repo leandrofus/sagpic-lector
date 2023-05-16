@@ -19,7 +19,7 @@ async function getDb(db, collection, data) {
 
             }
         } finally {
-            await client.close();
+            client.close();
             return result
         }
     }

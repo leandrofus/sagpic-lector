@@ -1,14 +1,13 @@
 <ul class="dropdown-menu">
     <li>
         <div class="row">
+            {{#each featuredAutors}}
             <div class="col">
-                <a class="dropdown-item" href="#">Action</a>
-            </div>
+                <a class="dropdown-item" href="/author/{{this.name}}">{{this.name}}</a>
+            </div>                
+            {{/each}}
             <div class="col">
-                <a class="dropdown-item" href="#">a</a>
-            </div>
-            <div class="col">
-                <a class="dropdown-item" href="#">a</a>
+                <a class="dropdown-item" href="/authors">Todos los autores</a>
             </div>
         </div>
     </li>

@@ -36,6 +36,7 @@ app.use(require('express-session')({
 
 
 var indexRouter = require('./routes/index');
+const { log } = require('console');
 
 
 // view engine setup
@@ -71,5 +72,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('utils/error');
 });
-
 module.exports = app;
