@@ -2,15 +2,35 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Registrarse</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <form class="p-4 p-md-5 p-sm-2 border rounded-3 bg-light text-center" method="post" action="/register/" name="register">
+          <div class="form-floating mb-3 sm-2">
+            <input type="text" class="form-control form-control-sm" id="floatingInput" placeholder="name@example.com" name="name">
+            <label for="floatingInput">Nombre</label>
+          </div>
+          <div class="form-floating mb-3 sm-2">
+            <input type="number" class="form-control form-control-sm" id="floatingInput" placeholder="name@example.com" name="age">
+            <label for="floatingInput">Edad</label>
+          </div>
+          <div class="form-floating mb-3 sm-2">
+            <input type="email" class="form-control form-control-sm" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput">Email</label>
+          </div>
+          <div class="form-floating mb-3 sm-2">
+            <input type="password" class="form-control form-control-sm" id="floatingPassword" placeholder="Password" name="psw1">
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating mb-3 sm-2">
+            <input type="password" class="form-control form-control-sm" id="floatingPassword" placeholder="Password" name="psw2">
+            <label for="floatingPassword">Repetir password</label>
+          </div>
+          <button class="m-2 btn btn-primary" type="submit">Enviar</button>
+          <button class="m-2 btn btn-primary" type="reset">Reset</button>
+        <p class="text-start"><small>Al registrarse se aceptan los terminos y condiciones</small></p>
+        </form>
       </div>
     </div>
   </div>

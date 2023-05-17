@@ -13,12 +13,13 @@
             <div class="col-sm-12 col-lg-9">
                 <div class="row">
                     {{#each genresMenu}}
-                    <div class="col-sm-2 col-lg-2">
+                    <div class="col-sm-2 col-lg-6">
                         <a class="dropdown-item" href="/g/{{this.name}}"><img src="{{icon}}" width="32">
                             {{this.name}}</a>
                     </div>
                     {{/each}}
                 </div>
+                <hr>
                 <a class="dropdown-item" href="/g/"><img src="" width="32">
                     Todos los géneros</a>
             </div>

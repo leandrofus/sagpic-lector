@@ -56,13 +56,15 @@
             </div>
             {{else}}
             <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form">
+                <form class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form" id="loginForm">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                            name="email">
                         <label for="floatingInput">Email</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            name="password">
                         <label for="floatingPassword">Password</label>
                     </div>
                     <div class="checkbox mb-3">
@@ -70,12 +72,30 @@
                             <input type="checkbox" value="remember-me"> Recuerdame
                         </label>
                     </div>
-                    <button class="w-25 m-3 btn btn-lg btn-primary" type="submit">Login</button>
-                    <button class="w-25 m-3 btn btn-lg btn-primary" type="button"data-bs-toggle="modal" data-bs-target="#modalRegister">Registrarse</button>
+                    <button class="m-3 btn btn btn-primary" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modalRegister">Registrarse</button>
+                    <button class="m-3 btn btn btn-primary" id="loginBtn" type="button">Login</button>
                     <hr class="my-4">
                 </form>
             </div>
+            <script>
+                $('#loginBtn').on('click', function (e) {
+                    e.preventDefault()
+                    var result = {};
+                    $.each($('#loginForm').serializeArray(), function () {
+                        result[this.name] = this.value;
+                    });
+                    $.ajax({
+                        url: '/login',
+                        method: 'post',
+                        data:  result,
+                        success: function (res) {
+                            console.log(res)
 
+                        }
+                    })
+                })
+            </script>
 
             {{/if}}
         </div>

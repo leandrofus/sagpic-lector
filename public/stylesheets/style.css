@@ -3,19 +3,24 @@ body {}
 a {
   color: #00B7FF;
 }
+nav{
+    -webkit-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
+    -moz-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
+    box-shadow: 0px 6px 5px 0px rgba(44, 44, 44, 0.82);
 
+}
 .navbar {}
 
 .sideBar {
-  background-color: #00B7FF;
+  background-color: #ff00d41c;
   height: 90vh;
   overflow-y: scroll;
 }
 
 .cont {
   background-color: beige;
-  max-height: 93.7vh;
-  height: 93.7vh;
+  max-height: 95vh;
+  height: 92.7vh;
   overflow-y: auto;
   scrollbar-color: #4444;
   padding: 0;

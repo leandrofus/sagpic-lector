@@ -20,6 +20,7 @@
     }
 
     .profile-logged {
+        object-fit: cover;
         border-radius: 100%;
         aspect-ratio: 1;
         
@@ -34,7 +35,7 @@
             </div>
             {{#if galery}}
 
-            <div class="col-md-10 mx-auto col-lg-5 col-sm-12">
+            <div class="col-md-10 mx-auto col-lg-5 col-sm-12 g-0">
                 <div class="p-2 p-md-3 border rounded-3 bg-light jumbotron-form">
                     <div class="row">
                         <div class="col-lg-3 col-sm-12">
@@ -51,14 +52,14 @@
 
             {{else}}
             {{#each user}}
-            <div class="col-md-10 mx-auto col-lg-5">
+            <div class="col-md-10 mx-auto col-lg-5 g-0">
                 <div class="p-2 p-md-3 border rounded-3 bg-light jumbotron-form">
                     <div class="row">
-                        <div class="col-lg-3 col-sm-12">
+                        <div class="col-lg-4 col-sm-12">
                             <img class="profile-logged" width="150" height="150" src="{{profile_photo}}"
                                 alt="{{nombre}}">
                         </div>
-                        <div class="col-lg-9 col-sm-12">
+                        <div class="col-lg-8 col-sm-12">
                             <h3>Quien soy</h3>
                             <p> <small> {{bio}}</small></p>
                         </div>

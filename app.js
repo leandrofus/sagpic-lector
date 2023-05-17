@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var hbs = require( 'express-handlebars' ).engine
 var session = require('express-session')
-var session = require('express-session');
+var bodyParser = require('body-parser')
 var MongoDBStore = require('connect-mongodb-session')(session);
 
 var app = express();
@@ -14,7 +14,9 @@ var store = new MongoDBStore({
   databaseName:'sagpic_lector',
   collection: 'mySessions'
 });
-
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
+app.use(bodyParser.json())
+app.use(urlencodedParser)
 // Catch errors
 store.on('error', function(error) {
   console.log(error);

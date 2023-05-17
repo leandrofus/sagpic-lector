@@ -1,7 +1,11 @@
 {{#if loggedIn}}
-<div class="row" style="flex-wrap: nowrap;">
-    <div class="col">
-        <button class="btn btn-outline"> <svg style="width: 40px;" viewBox="0 0 24 24" fill="none"
+<div class="row flex-row-reverse" style="flex-wrap: nowrap;">
+    <div class="col-4 p-0 m-0" style="
+    align-self: center;">
+        <a href="/profile"><button class="btn btn-outline ">Mi cuenta</button></a>
+    </div>
+    <div class="col-2 p-0 m-0">
+        <button class="btn btn-outline"> <svg style="width: 32px;" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="1"></g>
                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -18,10 +22,6 @@
                         stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10"></path>
                 </g>
             </svg></button>
-    </div>
-    <div class="col" style="
-    align-self: center;">
-        <button class="btn btn-outline ">Mi cuenta</button>
     </div>
 </div>
 
