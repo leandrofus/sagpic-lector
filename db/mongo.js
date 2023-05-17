@@ -13,9 +13,8 @@ async function getDb(db, collection, data) {
         await client.connect();
         const Db = client.db(db);
         const coll = Db.collection(collection);
-        const cursor = coll.find(data).sort({ name: 1 });
+        const cursor = coll.find(data).sort({ name: 1, author:1, title:1 });
         for await (const doc of cursor) {
-            console.log(doc);
             result.push(doc)
 
         }

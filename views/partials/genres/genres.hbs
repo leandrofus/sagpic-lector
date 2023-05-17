@@ -31,12 +31,12 @@
 <div class="row row-cols-1 row-cols-md-3 m-2">
     {{#each genresMenu}}
 
-    <a class="link-underline link-underline-opacity-0" href="/{{this.name}}">
+    <a class="link-underline link-underline-opacity-0" href="/g/{{this.name}}">
         <div class="card m-0" style="max-width: 350px;">
             <div class="row g-0">
                 <h2 class="card-title text-center">{{this.name}}</h2>
                 <div class="col-md-8">
-                    <img src="{{this.poster}}" class="img-fluid rounded-start px-2" alt="{{this.name}}">
+                    <img src="{{this.poster}}" class="img-fluid rounded-4 px-2" alt="{{this.name}}">
                     <p class="card-text text-center"><small class="text-muted"></small></p>
                     <p class="card-text text-center">{{this.description}}</p>
                 </div>

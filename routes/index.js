@@ -1,16 +1,34 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db/mongo')
+var db = require('../db/mongo');
+const session = require('express-session');
+const { ObjectId } = require('mongodb');
+
+var genres 
+var featuredAutors 
+async function init() {
+  async function getGenres() {
+  await db.getDb('sagpic_lector', 'users', { featured: true }).then((a)=>{
+      featuredAutors = a
+    })
+  }
+  async function getFeaturedAuthors() {
+    await db.getDb('sagpic_lector', 'genres').then((b)=>{
+      genres = b
+    })
+    
+  }
+  await getFeaturedAuthors()
+  await getGenres()
+}
+init().then()
 
 
-
-router.get('/', async function (_req, res, _next) {
-  var genres = await db.getDb('sagpic_lector', 'genres')
-  var featuredAutors = await db.getDb('sagpic_lector', 'users', { featured: true })
+router.get('/', async function (req, res, next) {
   res.render('layouts/index',
     {
       title: 'Sagpic',
-      loggedIn: true,
+      loggedIn: req.session.user,
       genresMenu: genres,
       featuredAutors: featuredAutors,
 
@@ -21,46 +39,58 @@ router.get('/', async function (_req, res, _next) {
 router.post('/register', async function (req, res, _next) {
   if (req.body.psw1 === req.body.psw2) {
     await db.postDb('sagpic_lector', 'users', req.body)
+    return res.send('ok')
   } else {
     return res.send('las contraseñas no coinciden')
   }
-  return res.send('ok')
 });
 
 router.post('/login', async function (req, res, _next) {
   console.log(req.body);
-  var genres = await db.getDb('sagpic_lector', 'users', req.body)
-  if (genres.length > 0) {
-    return res.send('http://localhost:3000/profile/')
+  var auth = await db.getDb('sagpic_lector', 'users', req.body)
+  console.log(auth);
+  if (auth.length > 0){
+    let user = {
+      user: auth[0]._id.toString(),
+      profile_photo:auth[0].profile_photo,
+      type:auth[0].type,
+
+    }
+    req.session.user = user
+    console.log(req.session);
+    res.send('http://localhost:3000/profile/')
 
   } else {
     res.send('Credenciales no validas')
   }
 });
-router.get('/profile/', async function (_req, res, _next) {
-  // var genres = await db.getDb('sagpic_lector','genres')
-  // var featuredAutors = await db.getDb('sagpic_lector','users',{featured:true})
-  let authorRegex = new RegExp(["^", 'micaela Flaherty', "$"].join(""), "i");
-  var users = await db.getDb('sagpic_lector', 'users', { name: { $regex: authorRegex } })
-  console.log(users);
-  res.render('layouts/profile',
-    {
-      title: 'Sagpic - Buffet de novelas',
 
-      loggedIn: true,
-      // genresMenu:genres,
-      // featuredAutors:featuredAutors,
-      user: users,
-    },
-  );
+router.get('/logout', async function (req, res, _next) {
+  req.session.destroy()
+  res.redirect('/')
+})
+router.get('/profile/', async function (req, res, _next) {
+  if (req.session.user) {
+    var users = await db.getDb('sagpic_lector', 'users', { _id: new ObjectId(req.session.user.user) })
+    console.log(users);
+    res.render('layouts/profile',
+      {
+        title: 'Sagpic - Perfil',
+        loggedIn:req.session.user,
+        genresMenu:genres,
+        featuredAutors:featuredAutors,
+        user: users,
+      },
+    );
+  } else {
+    res.redirect('/')
+  }
 });
-router.get('/g/', async function (_req, res, _next) {
-  var genres = await db.getDb('sagpic_lector', 'genres')
-  var featuredAutors = await db.getDb('sagpic_lector', 'users', { featured: true })
+router.get('/g/', async function (req, res, _next) {
   res.render('layouts/genres',
     {
       title: 'Sagpic - Buffet de novelas',
-      loggedIn: true,
+      loggedIn:req.session.user,
       genresMenu: genres,
       featuredAutors: featuredAutors,
 
@@ -72,8 +102,6 @@ router.get('/g/:genre', async function (req, res, _next) {
   try {
 
     var genero = req.params.genre
-    var genres = await db.getDb('sagpic_lector', 'genres')
-    var featuredAutors = await db.getDb('sagpic_lector', 'users', { featured: true })
     var stories = await db.getDb('sagpic_lector', 'stories', { genre: genero })
     if (stories.lenght > 0) {
       var chapters = Array(stories[0].chapters).length;
@@ -86,11 +114,11 @@ router.get('/g/:genre', async function (req, res, _next) {
   res.render('layouts/stories',
     {
       title: 'Sagpic - ' + genero,
-      loggedIn: true,
       genresMenu: genres,
+      featuredAutors: featuredAutors,
       stories: stories,
       genero: genero,
-      featuredAutors: featuredAutors,
+      loggedIn: req.session.user,
       chapters: chapters,
     },
   );
@@ -101,16 +129,14 @@ router.get('/authors', async function (req, res, _next) {
   if (genero == undefined) {
     genero = 'Autores'
   }
-  var genres = await db.getDb('sagpic_lector', 'genres')
   var users = await db.getDb('sagpic_lector', 'users', { type: 'author' })
-  var featuredAutors = await db.getDb('sagpic_lector', 'users', { featured: true })
   console.log(users);
   res.render('layouts/authors',
     {
-      galery: true,
       title: 'Sagpic - ' + genero,
+      galery: true,
       author: genero,
-      loggedIn: true,
+      loggedIn: req.session.user,
       genresMenu: genres,
       featuredAutors: featuredAutors,
       genero: genero,
@@ -121,27 +147,19 @@ router.get('/authors', async function (req, res, _next) {
 
 router.get('/author/:author', async function (req, res, _next) {
   let author = req.params.author
-  var genres = await db.getDb('sagpic_lector', 'genres')
   let authorRegex = new RegExp(["^", author, "$"].join(""), "i");
   var stories = await db.getDb('sagpic_lector', 'stories', { author: { $regex: authorRegex } })
-  var user = await db.getDb('sagpic_lector', 'users', { author: { $regex: authorRegex } })
-  var featuredAutors = await db.getDb('sagpic_lector', 'users', { featured: true })
-  if (stories.length > 0) {
-    var chapters = Array(stories[0].chapters).length;
-  } else {
-    var chapters = null
-  }
+  var authorStories = await db.getDb('sagpic_lector', 'users', { author: { $regex: authorRegex } })
   console.log(stories);
   res.render('layouts/authors',
     {
       title: 'Sagpic - ' + author,
-      loggedIn: true,
+      loggedIn: req.session.user,
       genresMenu: genres,
       featuredAutors: featuredAutors,
       stories: stories,
       author: author,
-      chapters: chapters,
-      user: user,
+      user: authorStories,
 
     },
   );

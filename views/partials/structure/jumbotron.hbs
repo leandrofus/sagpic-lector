@@ -35,7 +35,7 @@
 </style>
 <div class="row d-flex d-sx-none">
     <div class="col background-jumbo">
-        <div class="row align-items-center g-lg-5 py-5">
+        <div class="row align-items-center py-5">
             <div class="col-lg-7 text-center text-lg-start">
                 <h1 class="display-1 fw-bold lh-1 mb-3" style="color: aliceblue;">Sagpic</h1>
                 <p class="col-lg-10 fs-4" style="color: aliceblue;">Tu sitio de lectura</p>
@@ -44,7 +44,7 @@
             <div class="col-md-10 mx-auto col-lg-5">
                 <div class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form">
                     <img class="profile-logged" width="150" height="150"
-                        src="https://media.licdn.com/dms/image/C4E03AQGMl5F_PwU8rQ/profile-displayphoto-shrink_800_800/0/1617134969799?e=2147483647&v=beta&t=WWPJj4uKNfxUHbtjOfXmD_Mxq8tyEQzRWAsVvrALkWw"
+                        src="{{loggedIn.profile_photo}}"
                         alt="">
                     <h3 class="">Actualmente leyendo</h3>
                     <ul style="text-align-last: start;">
@@ -90,7 +90,7 @@
                         method: 'post',
                         data:  result,
                         success: function (res) {
-                            console.log(res)
+                            window.location.href = res
 
                         }
                     })
