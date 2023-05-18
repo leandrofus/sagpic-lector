@@ -29,6 +29,7 @@
 </style>
 
 {{#if galery}}
+{{!-- IF ALL AUTHORS --}}
 <div class="row row-cols-1 row-cols-md-3 m-2">
     {{#each user}}
     <div class="card m-lg-3 p-lg-3 m-sm-0 p-sm-0" style="max-width: 400px;">
@@ -96,6 +97,7 @@
     {{/each}}
 </div>
 {{else}}
+{{!-- if ONE author --}}
 <div class="row row-cols-1 row-cols-md-3 m-2">
     {{#each stories}}
     <div class="card m-lg-3 p-lg-3 m-sm-0 p-sm-0" style="max-width: 350px;">

@@ -13,8 +13,9 @@ nav{
 
 .sideBar {
   background-color: #ff00d41c;
-  height: 90vh;
+  height: 92.7vh;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .cont {
@@ -49,3 +50,7 @@ nav{
   margin: 0;
 
 }
+
+
+
+

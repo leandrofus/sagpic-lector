@@ -1,3 +1,86 @@
+{{#if profile}}
+{{#if me}}
+<div class="sideBar">
+    {{#each der}}
+    <div class="card card-lateral m-2 mt-5" data-bs-toggle="modal" data-bs-target="#modalHistory{{@index}}"
+        history-id='{{this._id}}'>
+        <div class="card-body p-0">
+            <div class="row">
+                <div class="col-lg-5 p-0">
+                    <img src='{{this.poster}}' width="75">
+                </div>
+                <div class="col-lg-7 px-2">
+                    <h5 class="text-center text-break" style="font-weight: 400;font-size: medium;">{{this.title}}</h5>
+                    <hr class="p-0 m-0">
+                    <p class="fs-5 text-center p-0 m-0">{{this.actual}} / {{this.total}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{#each der}}
+<div class="modal fade" id="modalHistory{{@index}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalHistoryTitle">{{this.more.title}} </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="{{this.poster}}" alt="{{this.title}}" width="100%">
+                    </div>
+                    <div class="col-7">
+                        <div class="row flex-row-reverse">
+                            <div class="col-7">
+
+                                <h3 class="text-muted text-end">
+                                    Author:{{this.more.author}}
+
+                                </h3>
+                            </div>
+                            {{!-- <div class="col-0"></div> --}}
+                            <div class="col-5">
+                                <h4>Sintesis</h4>
+
+                            </div>
+
+                        </div>
+                        <div class="row" style="overflow-y: scroll;max-height: 300px;">
+                            <p class="text-muted">{{this.more.sint}}</p>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        a
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<script>
+    $('.card-lateral').on('click', function (e) {
+        let id = $(this).attr('history-id')
+        $.ajax({
+            url: '/s/' + id,
+            method: 'get',
+            success: function (res) {
+                console.log(res)
+            }
+        })
+    })
+</script>
+{{else}}
 <div class="sideBar">
 
 </div>
+{{/if}}
+{{/if}}

@@ -1,3 +1,4 @@
+require('dotenv').config()
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -7,11 +8,10 @@ var hbs = require( 'express-handlebars' ).engine
 var session = require('express-session')
 var bodyParser = require('body-parser')
 var MongoDBStore = require('connect-mongodb-session')(session);
-var env = require('env');
 
 var app = express();
 var store = new MongoDBStore({
-  uri: "mongodb+srv://lfuscosagpiccomar:BeJnhERbPcKasHd9@cluster0.k59l0tc.mongodb.net/?retryWrites=true&w=majority",
+  uri: `mongodb+srv://${process.env['MONGO_USR']}:${process.env['MONGO_PSW']}@cluster0.k59l0tc.mongodb.net/?retryWrites=true&w=majority`,
   databaseName:'sagpic_lector',
   collection: 'mySessions'
 });
@@ -36,11 +36,18 @@ app.use(require('express-session')({
   saveUninitialized: true
 }));
 
-
-
+//ROUTER
 var indexRouter = require('./routes/index');
-const { log } = require('console');
+var login = require('./routes/login')
+var genres = require('./routes/genres')
+var authors = require('./routes/authors')
+var stories = require('./routes/stories')
 
+app.use('/', indexRouter);
+app.use('/', login);
+app.use('/', genres);
+app.use('/', authors);
+app.use('/', stories);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -58,7 +65,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
