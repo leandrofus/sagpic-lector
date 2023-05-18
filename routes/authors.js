@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db/mongo');
 const { ObjectId } = require('mongodb');
-const menuFill = require('./init').init()
+const menuFill = require('./init')().then((res)=>{
+  return res
+});
 
 
 router.get('/authors', async function (req, res, _next) {
@@ -26,16 +28,17 @@ router.get('/authors', async function (req, res, _next) {
   
   router.get('/author/:author', async function (req, res, _next) {
     let author = req.params.author
-    let authorRegex = new RegExp(["^", author, "$"].join(""), "i");
-    var stories = await db.getDb('sagpic_lector', 'stories', { author: { $regex: authorRegex } })
-    var authorStories = await db.getDb('sagpic_lector', 'users', { author: { $regex: authorRegex } })
+    var stories = await db.getDb('sagpic_lector', 'stories', { _id:new ObjectId(req.params.author) })
+    var authorStories = await db.getDb('sagpic_lector', 'users', { _id:new ObjectId(req.params.author) })
+    console.log(authorStories);
     res.render('layouts/authors',
       {
-        title: 'Sagpic - ' + author,
+        title: 'Sagpic - ' + authorStories[0].name,
         loggedIn: req.session.user,
         menu:await menuFill,
         stories: stories,
         author: author,
+        galery:false,
         user: authorStories,
   
       },

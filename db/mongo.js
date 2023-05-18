@@ -13,7 +13,6 @@ const client = new MongoClient(uri, {
 async function getDb(db, collection, data) {
     var result = []
     try {
-        console.log(data);
         await client.connect();
         const Db = client.db(db);
         const coll = Db.collection(collection);
@@ -22,9 +21,13 @@ async function getDb(db, collection, data) {
             result.push(doc)
 
         }
-    } finally {
-        client.close();
+        await client.close();
         return result
+    }
+        catch(err){
+            console.log(err);
+        }
+     finally {
     }
 }
 async function postDb(db, collection, data) {

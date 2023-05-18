@@ -2,8 +2,9 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db/mongo');
 const { ObjectId } = require('mongodb');
-const menuFill = require('./init').init()
-
+const menuFill = require('./init')().then((res)=>{
+  return res
+});
 router.get('/', async function (req, res, next) {
   res.render('layouts/index',
     {

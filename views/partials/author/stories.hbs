@@ -34,17 +34,17 @@
     {{#each user}}
     <div class="card m-lg-3 p-lg-3 m-sm-0 p-sm-0" style="max-width: 400px;">
         <div class="row g-0">
-            <a class="link-underline link-underline-opacity-0" href="/author/{{this.name}}">
+            <a class="link-underline link-underline-opacity-0" href="/author/{{this._id}}">
                 <h5 class="card-title">{{this.name}}</h5>
             </a>
             <div class="col-md-4" style="align-self:center;">
-                <a class="link-underline link-underline-opacity-0" href="/author/{{this.name}}">
+                <a class="link-underline link-underline-opacity-0" href="/author/{{this._id}}">
                     <img src="{{this.profile_photo}}" class="img-fluid profile-logged align-self-center" alt="{{this.name}}">
                 </a>
             </div>
             <div class="col-md-12">
                 <p class="card-text"> <a class="link-underline link-underline-opacity-0 link-secondary"
-                        href="/author/{{this.name}}">{{this.bio}}</a> </p>
+                        href="/author/{{this._id}}">{{this.bio}}</a> </p>
                 <div class="card-body">
                     {{!-- <p class="card-text"><small class="text-muted"></small></p> --}}
                     <div class="row">
@@ -113,7 +113,7 @@
                         <h5 class="card-title">{{this.title}}</h5>
                     </a>
                     <p class="card-text"> <a class="link-underline link-underline-opacity-0"
-                            href="/author/{{this.author}}">{{this.author}}</a> </p>
+                            href="/author/{{this._id}}">{{this.author}}</a> </p>
                     <p class="card-text"> <span class="p2"> <svg style="width: 30px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

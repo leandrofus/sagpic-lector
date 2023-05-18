@@ -2,11 +2,11 @@ var db = require('../db/mongo');
 const { ObjectId } = require('mongodb');
 
 
-async function init() {
-    var menuFill = {
-        genres:'',
-        featuredAutors:'', 
-      }
+var menuFill = {
+    genres:'',
+    featuredAutors:'', 
+  }
+module.exports = async function init() {
     async function getGenres() {
     await db.getDb('sagpic_lector', 'users', { featured: true }).then((result)=>{
         menuFill.featuredAutors = result
@@ -18,11 +18,12 @@ async function init() {
         })
         
     }
-    await getFeaturedAuthors()
-    await getGenres()
+    let a=await getFeaturedAuthors()
+    let b =await getGenres()
     return menuFill
 }
-module.exports = {init}
+
+
 
 
   

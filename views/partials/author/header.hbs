@@ -30,8 +30,8 @@
     <div class="col-12 background-jumbo">
         <div class="row align-items-center g-lg-5 py-5">
             <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-1 fw-bold lh-1 mb-3" style="color: aliceblue;">{{author}}</h1>
-                <p class="col-lg-10 fs-4" style="color: aliceblue;">{{description}}</p>
+                <h1 class="display-1 fw-bold lh-1 mb-3" style="color: aliceblue;">{{user.[0].name}}</h1>
+                <p class="col-lg-10 fs-4" style="color: aliceblue;">{{user.[0].description}}</p>
             </div>
             {{#if galery}}
 
@@ -39,8 +39,8 @@
                 <div class="p-2 p-md-3 border rounded-3 bg-light jumbotron-form">
                     <div class="row">
                         <div class="col-lg-3 col-sm-12">
-                            <img class="profile-logged" width="150" height="150" src="{{profile_photo}}"
-                                alt="{{nombre}}">
+                            <img class="profile-logged" width="150" height="150" src="{{user.[0].profile_photo}}"
+                                alt="{{user.[0].name}}">
                         </div>
                         <div class="col-lg-9 col-sm-12">
                             <h3>Conoce a nuestros autores</h3>
@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-sm-12">
                             <img class="profile-logged" width="150" height="150" src="{{profile_photo}}"
-                                alt="{{nombre}}">
+                                alt="{{name}}">
                         </div>
                         <div class="col-lg-8 col-sm-12">
                             <h3>Quien soy</h3>
