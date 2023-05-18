@@ -7,6 +7,7 @@ var hbs = require( 'express-handlebars' ).engine
 var session = require('express-session')
 var bodyParser = require('body-parser')
 var MongoDBStore = require('connect-mongodb-session')(session);
+var env = require('env');
 
 var app = express();
 var store = new MongoDBStore({
