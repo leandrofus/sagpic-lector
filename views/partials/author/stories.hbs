@@ -39,7 +39,8 @@
             </a>
             <div class="col-md-4" style="align-self:center;">
                 <a class="link-underline link-underline-opacity-0" href="/author/{{this._id}}">
-                    <img src="{{this.profile_photo}}" class="img-fluid profile-logged align-self-center" alt="{{this.name}}">
+                    <img src="{{this.profile_photo}}" class="img-fluid profile-logged align-self-center"
+                        alt="{{this.name}}">
                 </a>
             </div>
             <div class="col-md-12">
@@ -86,7 +87,7 @@
                                                 d="M0 23.008v-17.984q0-1.024 0.48-1.888t1.28-1.44q1.024-0.672 2.24-0.672 0.736 0 1.472 0.256l10.016 4q0.064 0.032 0.512 0.32 0.448-0.288 0.512-0.32l10.016-4q0.736-0.256 1.472-0.256 1.248 0 2.24 0.672 0.832 0.576 1.312 1.44t0.448 1.888v17.984q0 1.248-0.672 2.24t-1.856 1.472l-9.984 4q-0.736 0.288-1.472 0.288-1.024 0-2.016-0.576-0.992 0.576-1.984 0.576-0.768 0-1.504-0.288l-9.984-4q-1.152-0.448-1.824-1.472t-0.704-2.24zM4 23.008l10.016 4v-17.984l-10.016-4v17.984zM6.016 21.824v-2.016l5.984 2.4v2.016zM6.016 17.824v-2.016l5.984 2.4v2.016zM6.016 13.824v-2.016l5.984 2.4v2.016zM6.016 9.824v-2.016l5.984 2.4v2.016zM18.016 27.008l9.984-4v-17.984l-9.984 4v17.984zM20 24.224v-2.016l6.016-2.4v2.016zM20 20.224v-2.016l6.016-2.4v2.016zM20 16.224v-2.016l6.016-2.4v2.016zM20 12.224v-2.016l6.016-2.4v2.016z">
                                             </path>
                                         </g>
-                                    </svg></span> {{this.books}}</p>
+                                    </svg></span> {{this.books.length}}</p>
                         </div>
 
                     </div>
@@ -99,21 +100,21 @@
 {{else}}
 {{!-- if ONE author --}}
 <div class="row row-cols-1 row-cols-md-3 m-2">
-    {{#each stories}}
+    {{#each user}}
     <div class="card m-lg-3 p-lg-3 m-sm-0 p-sm-0" style="max-width: 350px;">
         <div class="row g-0">
             <div class="col-md-4" style="align-self:center;">
-                <a class="link-underline link-underline-opacity-0" href="/story/{{this.title}}">
+                <a class="link-underline link-underline-opacity-0" href="/story/{{this._id}}">
                     <img src="{{this.img}}" class="img-fluid rounded-start" alt="{{this.title}}">
                 </a>
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <a class="link-underline link-underline-opacity-0" href="/story/{{this.title}}">
+                    <a class="link-underline link-underline-opacity-0" href="/story/{{this._id}}">
                         <h5 class="card-title">{{this.title}}</h5>
                     </a>
                     <p class="card-text"> <a class="link-underline link-underline-opacity-0"
-                            href="/author/{{this._id}}">{{this.author}}</a> </p>
+                            href="/author/{{this._id}}">{{this.authorName}}</a> </p>
                     <p class="card-text"> <span class="p2"> <svg style="width: 30px" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -144,7 +145,7 @@
                                         d="M0 23.008v-17.984q0-1.024 0.48-1.888t1.28-1.44q1.024-0.672 2.24-0.672 0.736 0 1.472 0.256l10.016 4q0.064 0.032 0.512 0.32 0.448-0.288 0.512-0.32l10.016-4q0.736-0.256 1.472-0.256 1.248 0 2.24 0.672 0.832 0.576 1.312 1.44t0.448 1.888v17.984q0 1.248-0.672 2.24t-1.856 1.472l-9.984 4q-0.736 0.288-1.472 0.288-1.024 0-2.016-0.576-0.992 0.576-1.984 0.576-0.768 0-1.504-0.288l-9.984-4q-1.152-0.448-1.824-1.472t-0.704-2.24zM4 23.008l10.016 4v-17.984l-10.016-4v17.984zM6.016 21.824v-2.016l5.984 2.4v2.016zM6.016 17.824v-2.016l5.984 2.4v2.016zM6.016 13.824v-2.016l5.984 2.4v2.016zM6.016 9.824v-2.016l5.984 2.4v2.016zM18.016 27.008l9.984-4v-17.984l-9.984 4v17.984zM20 24.224v-2.016l6.016-2.4v2.016zM20 20.224v-2.016l6.016-2.4v2.016zM20 16.224v-2.016l6.016-2.4v2.016zM20 12.224v-2.016l6.016-2.4v2.016z">
                                     </path>
                                 </g>
-                            </svg></span> {{ this.chapters.length }}</p>
+                            </svg></span> {{this.chapters.length }}</p>
                     <hr>
                     <p class="card-text"><small class="text-muted"></small></p>
                 </div>

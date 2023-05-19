@@ -5,7 +5,7 @@
                 <div class="row">
                     {{#each menu.featuredAutors}}
                     <div class="col-sm-2 col-lg-6">
-                        <a class="dropdown-item" href="/author/{{this.name}}"><img style="border-radius: 100%;aspect-ratio: 1;" src="{{this.profile_photo}}" width="48">
+                        <a class="dropdown-item" href="/author/{{this._id}}"><img style="border-radius: 100%;aspect-ratio: 1;" src="{{this.profile_photo}}" width="48">
                             {{this.name}}</a>
                     </div>
                     {{/each}}

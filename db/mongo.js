@@ -21,7 +21,7 @@ async function getDb(db, collection, data) {
             result.push(doc)
 
         }
-        await client.close();
+        // await client.close();
         return result
     }
         catch(err){

@@ -28,18 +28,19 @@ router.get('/authors', async function (req, res, _next) {
   
   router.get('/author/:author', async function (req, res, _next) {
     let author = req.params.author
-    var stories = await db.getDb('sagpic_lector', 'stories', { _id:new ObjectId(req.params.author) })
-    var authorStories = await db.getDb('sagpic_lector', 'users', { _id:new ObjectId(req.params.author) })
-    console.log(authorStories);
+    var stories = await db.getDb('sagpic_lector', 'stories', { author:req.params.author })
+    var authorData = await db.getDb('sagpic_lector', 'users', { _id: new ObjectId( req.params.author)})
+    console.log(authorData);
     res.render('layouts/authors',
       {
-        title: 'Sagpic - ' + authorStories[0].name,
+        title: 'Sagpic - ' + authorData.authorName,
         loggedIn: req.session.user,
         menu:await menuFill,
         stories: stories,
         author: author,
-        galery:false,
-        user: authorStories,
+        user: stories,
+        userData:authorData
+
   
       },
     );

@@ -9,41 +9,30 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-
     .jumbotron-form {
-        -webkit-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
-        -moz-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
-        box-shadow: 5px 6px 10px 0px rgba(44, 44, 44, 0.82);
         text-align: center;
-        color: black;
+        background-color: seashell;
     }
-
-    @media screen and (min-width: 768px) {
-        .profile-logged {
-            border-radius: 100%;
-        }
-
+    .profile-logged{
+        border-radius: 100%;
+        object-fit: cover;
     }
+.background-jumbo{
 
-    @media screen and (max-width: 767px) {
-        .profile-logged {
-            border-radius: 100%;
-            position: relative;
-            top: 0;
-        }
-    }
+}
+
 </style>
 <div class="row d-flex d-sx-none">
     <div class="col background-jumbo">
-        <div class="row align-items-center py-5">
-            <div class="col-lg-7 text-center text-lg-start">
-                <h1 class="display-1 fw-bold lh-1 mb-3" style="color: aliceblue;">Sagpic</h1>
-                <p class="col-lg-10 fs-4" style="color: aliceblue;">Tu sitio de lectura</p>
+        <div class="row align-items-center py-2" style="height: 265px;">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-3 fw-bold lh-1 mb-3" style="color: aliceblue ;">Sagpic</h1>
+                <p class="col-lg-4 fs-4" style="color: aliceblue;">Tu sitio de lectura</p>
             </div>
             {{#if loggedIn}}
-            <div class="col-md-10 mx-auto col-lg-5">
-                <div class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form">
-                    <img class="profile-logged" width="150" height="150"
+            <div class="mx-auto col-lg-6">
+                <div class="p-lg-2 border rounded-3 bg-light jumbotron-form">
+                    <img class="profile-logged" width="100" height="100"
                         src="{{loggedIn.profile_photo}}"
                         alt="">
                     <h3 class="">Actualmente leyendo</h3>
@@ -55,10 +44,10 @@
                 </div>
             </div>
             {{else}}
-            <div class="col-md-10 mx-auto col-lg-5">
-                <form class="p-4 p-md-5 border rounded-3 bg-light jumbotron-form" id="loginForm">
+            <div class="mx-auto col-lg-6">
+                <form class="p-lg-2 border rounded-3 bg-light jumbotron-form" id="loginForm">
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+                        <input type="email" class="form-control form-control-lg form-control-sm" id="floatingInput" placeholder="name@example.com"
                             name="email">
                         <label for="floatingInput">Email</label>
                     </div>
@@ -72,10 +61,9 @@
                             <input type="checkbox" value="remember-me"> Recuerdame
                         </label>
                     </div>
-                    <button class="m-3 btn btn btn-primary" type="button" data-bs-toggle="modal"
+                    <button class="mx-6 btn btn btn-primary" type="button" data-bs-toggle="modal"
                         data-bs-target="#modalRegister">Registrarse</button>
-                    <button class="m-3 btn btn btn-primary" id="loginBtn" type="button">Login</button>
-                    <hr class="my-4">
+                    <button class="mx-6 btn btn btn-primary" id="loginBtn" type="button">Login</button>
                 </form>
             </div>
             <script>
