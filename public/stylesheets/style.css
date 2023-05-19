@@ -1,4 +1,3 @@
-body {}
 
 a {
   color: #00B7FF;
@@ -10,12 +9,6 @@ nav{
 
 }
 
-.sideBar {
-  background-color: #ff00d41c;
-  height: 92.7vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
 
 .cont {
   background-color: beige;

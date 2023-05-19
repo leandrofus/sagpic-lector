@@ -1,5 +1,14 @@
 {{#if profile}}
 {{#if me}}
+<style>
+    .sideBar {
+  background-color: #ff00d41c;
+  height: 92.7vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+</style>
 <div class="sideBar">
     {{#each der}}
     <div class="card card-lateral m-2 mt-5" data-bs-toggle="modal" data-bs-target="#modalHistory{{@index}}"
