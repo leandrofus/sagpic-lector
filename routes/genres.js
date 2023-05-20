@@ -19,7 +19,14 @@ router.get('/g/', async function (req, res, _next) {
     try {
   
       var genero = req.params.genre
-      var stories = await db.getDb('sagpic_lector', 'stories', { genre: genero })
+      var stories = await db.getDb('sagpic_lector', 'genres', { name: genero })
+      var ids = []
+      stories[0].books.forEach(e=>{
+         ids.push(e)
+      })
+        var obj_ids = ids.map(function(id) { return new ObjectId(id); });
+      var storyMeta = await db.getDb('sagpic_lector','stories',{_id:{$in: obj_ids}})
+      
     } catch (error) {
         console.log(error);
         return res.redirect('/')
@@ -28,7 +35,7 @@ router.get('/g/', async function (req, res, _next) {
       {
         title: 'Sagpic - ' + genero,
         menu:await menuFill,
-        stories: stories,
+        stories: storyMeta,
         genero: genero,
         loggedIn: req.session.user,
       },

@@ -23,21 +23,21 @@
         object-fit: cover;
         border-radius: 100%;
         aspect-ratio: 1;
-        width: 150px;
+        width: 75px;
     }
 </style>
 <div class="row d-flex d-sx-none">
     <div class="col background-jumbo">
         <div class="row align-items-center py-2" style="height: 265px;">
             <div class="col-lg-6 text-center text-lg-start">
-                <h1 class="display-3 fw-bold lh-1 mb-3" style="color: aliceblue ;">Sagpic</h1>
-                <p class="col-lg-4 fs-4" style="color: aliceblue;">Tu sitio de lectura</p>
+                <a class="link-offset-2 link-underline link-underline-opacity-0" href="/profile/{{userData.[0]._id}}">
+                <h1 class="display-3 fw-bold lh-1 mb-3" style="color: aliceblue ;">{{userData.[0].name}}</h1>
+                </a>
             </div>
             {{#if galery}}
-                {{> author/social/galeryHeader}}
             {{else}}
             {{#each userData}}
-                {{>author/social/profileDemo}}
+                {{> author/social/profileDemo}}
             {{/each}}
             {{/if}}
         </div>

@@ -1,0 +1,41 @@
+<div class="carousel-item img1" data-bs-interval="0">
+<div class="row row-cols-1 mx-5">
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input disabled type="text" class="form-control form-control-sm" placeholder="Facebook" name="facebook"
+                value="{{user.[0].social.[0].facebook}}">
+            <label for="">Facebook</label>
+        </div>
+    </div>
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input disabled type="text" class="form-control form-control-sm" placeholder="Instagram" name="instagram"
+                value="{{user.[0].social.[0].instagram}}">
+            <label for="">Instagram</label>
+        </div>
+    </div>
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input disabled type="text" class="form-control form-control-sm" placeholder="Twitter" name="twitter"
+                value="{{user.[0].social.[0].twitter}}">
+            <label for="">Twitter</label>
+        </div>
+    </div>
+    {{#if me}}
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input disabled type="text" class="form-control form-control-sm" placeholder="Youtube" name="youtube"
+                value="{{user.[0].social.[0].youtube}}">
+            <label for="">Youtube</label>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input disabled type="text" class="form-control form-control-sm" placeholder="Pinterest" name="pinterest"
+                value="{{user.[0].social.[0].pinterest}}">
+            <label for="">Pinterest</label>
+        </div>
+    </div>
+</div>
+</div>

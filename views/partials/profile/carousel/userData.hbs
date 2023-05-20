@@ -1,0 +1,41 @@
+<div class="carousel-item active img1" data-bs-interval="0">
+<div class="row row-cols-1 mx-5">
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input type="text" class="form-control form-control-sm" placeholder="Nombre" name="name"
+                value="{{user.[0].name}}">
+            <label for="">Nombre</label>
+        </div>
+    </div>
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input type="number" class="form-control form-control-sm" placeholder="Nombre" name="age"
+                value="{{user.[0].age}}">
+            <label for="">Edad</label>
+        </div>
+    </div>
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input type="text" class="form-control form-control-sm" placeholder="Pais" name="country"
+                value="{{user.[0].country}}">
+            <label for="">Pais</label>
+        </div>
+    </div>
+    {{#if me}}
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input disabled type="email" class="form-control form-control-sm" placeholder="Nombre" name="email"
+                value="{{user.[0].email}}">
+            <label for="">Email</label>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col col-md-6 col-sm-5">
+        <div class="form-floating mb-3 sm-2">
+            <input type="text" class="form-control form-control-sm" placeholder="Ciudad" name="city"
+                value="{{user.[0].city}}">
+            <label for="">Ciudad</label>
+        </div>
+    </div>
+</div>
+</div>

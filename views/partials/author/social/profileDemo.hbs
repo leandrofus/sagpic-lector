@@ -1,10 +1,12 @@
 <div class="mx-auto col-lg-6">
     <div class="p-lg-2 border rounded-3 bg-light jumbotron-form">
-        <div class="row">
-            <div class="col-lg-4 col-sm-12">
-                <img class="profile-logged" width="150" height="150" src="{{profile_photo}}" alt="{{name}}">
+        <div class="row row-cols-2">
+            <div class="col-lg-4 col-sm-12 text-center">
+                <a href="/profile/{{_id}}">
+                <img class="profile-logged" src="{{profile_photo}}" alt="{{name}}">
+                </a>
             </div>
-            <div class="col-lg-8 col-sm-12">
+            <div class="col-lg-8 col-sm-4">
                 <h3>{{this.name}}</h3>
                 <p> <small> {{bio}}</small></p>
             </div>

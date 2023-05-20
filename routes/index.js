@@ -19,15 +19,17 @@ router.get('/profile/me', async function (req, res, _next) {
   if (req.session.user) {
     var me = await db.getDb('sagpic_lector', 'users', { _id: new ObjectId(req.session.user.user) })
     var ids = []
-    me[0].lastHistories.forEach(e=>{
-       ids.push(e._id)
+    me[0].books.forEach(e=>{
+       ids.push(e)
     })
-    obj_ids = ids.map(function(id) { return new ObjectId(id); });
-    let stories = await db.getDb('sagpic_lector','stories',{_id:{$in: obj_ids}})
-    stories.forEach((e,i)=>{
-      me[0].lastHistories[i].more = e
-    })
-    console.log(me[0].lastHistories[0]);
+      var obj_ids = ids.map(function(id) { return new ObjectId(id); });
+      console.log(obj_ids);
+      var storyMeta = await db.getDb('sagpic_lector','stories',{_id:{$in: obj_ids}})
+
+      me[0].lastHistories.forEach((e,i)=>{
+        storyMeta[i].progress = {actual:e.actual,total:e.total}
+      })
+    
     res.render('layouts/profile',
       {
         title: 'Sagpic - Perfil',
@@ -36,7 +38,7 @@ router.get('/profile/me', async function (req, res, _next) {
         user: me,
         profile:true,
         me:true,
-        der: me[0].lastHistories
+        storyMeta: storyMeta,
       },
     );
   } else {
@@ -47,18 +49,23 @@ router.get('/profile/me', async function (req, res, _next) {
 
 router.get('/profile/:user', async function (req, res, _next) {
   if (req.session.user) {
-    user = await db.getDb('sagpic_lector','users',{_id: new ObjectId(req.params.user)})
-    await db.addVisit('sagpic_lector','users',{_id: new ObjectId(req.params.user)})
-    res.render('layouts/profile',
+    var user = await db.getDb('sagpic_lector','users',{_id: new ObjectId(req.params.user)})
+    if (user.length==0) {
+      return res.send('no existe')
+    }else{
+
+      await db.addVisit('sagpic_lector','users',{_id: new ObjectId(req.params.user)})
+      return res.render('layouts/profile',
       {
         title: 'Sagpic - Perfil',
         loggedIn:req.session.user,
         menu:await menuFill,
         user: user,
       },
-    );
+      );
+    }
   } else {
-    res.redirect('/')
+    return res.redirect('/')
   }
 });
 

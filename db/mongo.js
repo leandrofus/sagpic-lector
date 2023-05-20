@@ -111,7 +111,6 @@ async function addVisit(db, collection, data) {
         console.log(err);
     } 
     finally {
-        console.log(result);
         client.close();
         return result
     }

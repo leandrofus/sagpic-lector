@@ -6,25 +6,35 @@
         height: 125px;
         width: 125px;
     }
-    .coinMini{
+
+    .coinMini {
         object-fit: fill;
         width: 45px;
     }
-    button:
 
-    .card {
+    button: .card {
         -webkit-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
         -moz-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
         box-shadow: 5px 6px 10px 0px rgba(219, 156, 255, 0.82);
         color: rgb(0, 0, 0);
     }
+
     .card-lateral {
         -webkit-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
         -moz-box-shadow: 0px 10px 24px 0px rgba(44, 44, 44, 0.82);
         box-shadow: 5px 6px 10px 0px rgba(44, 44, 44, 0.82);
     }
 
+    .carousel-control-prev-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+    }
 
+    .carousel-control-next-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    .cont{
+        height: unset;
+    }
 </style>
 
 <div class="row text-center">
@@ -36,107 +46,121 @@
                     <div class="row align-items-center">
                         <div class="col-lg-4 col-sm-2 order-sm-last order-lg-first">
                             <div class="d-flex flex-sm-row flex-lg-column justify-content-center">
-                                <span class="align-item-start text-lg-start"><svg style="width: 30px; margin:2%" viewBox="0 0 24 24"
-                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                                    stroke-linejoin="round"></g>
-                                                <g id="SVGRepo_iconCarrier">
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                        d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z"
-                                                        fill="#000000"></path>
-                                                </g>
-                                </svg>{{user.[0].followers.length}}</span> 
-                                <span class="align-item-start text-lg-start"><svg style="width: 30px; margin:2%" viewBox="0 0 24 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                        stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z"
-                                            fill="#000000"></path>
-                                    </g>
-                                </svg>{{user.[0].following.length}}</span> 
-                                <span class="align-item-start text-lg-start"><svg style="width: 30px; margin:2%" viewBox="0 0 24 24"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                        stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z"
-                                            fill="#000000"></path>
-                                    </g>
-                                </svg>{{user.[0].readed.length}}</span>
+                                <span class="align-item-start text-lg-start"><svg style="margin:2%" fill="#000000"
+                                        width="30px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 328 328"
+                                        xml:space="preserve">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g id="XMLID_486_">
+                                                <path id="XMLID_487_"
+                                                    d="M115,126.75c34.601,0,62.751-28.149,62.751-62.749C177.751,29.4,149.601,1.25,115,1.25 c-34.601,0-62.75,28.15-62.75,62.751C52.25,98.601,80.399,126.75,115,126.75z M115,31.25c18.059,0,32.751,14.692,32.751,32.751 c0,18.058-14.692,32.749-32.751,32.749c-18.059,0-32.75-14.691-32.75-32.749C82.25,45.942,96.941,31.25,115,31.25z">
+                                                </path>
+                                                <path id="XMLID_490_"
+                                                    d="M228.607,181.144c-5.858-5.858-15.355-5.859-21.213-0.001c-5.858,5.857-5.858,15.355-0.001,21.213 l19.393,19.395l-19.393,19.392c-5.858,5.857-5.858,15.355-0.001,21.213c2.929,2.929,6.768,4.394,10.607,4.394 c3.838,0,7.678-1.464,10.607-4.393l30-29.998c2.813-2.813,4.393-6.628,4.393-10.606c0-3.978-1.58-7.793-4.393-10.607 L228.607,181.144z">
+                                                </path>
+                                                <path id="XMLID_491_"
+                                                    d="M223,116.75c-34.488,0-65.144,16.716-84.297,42.47c-7.763-1.628-15.695-2.47-23.703-2.47 c-63.411,0-115,51.589-115,115c0,8.284,6.716,15,15,15h125.596c19.247,24.348,49.031,40,82.404,40c57.897,0,105-47.103,105-105 S280.897,116.75,223,116.75z M31.325,256.75c7.106-39.739,41.923-70,83.675-70c2.965,0,5.914,0.165,8.841,0.467 c-3.779,10.82-5.841,22.44-5.841,34.533c0,12.268,2.122,24.047,6.006,35H31.325z M223,296.75c-41.355,0-75-33.645-75-75 s33.645-75,75-75s75,33.645,75,75S264.355,296.75,223,296.75z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </svg>{{user.[0].following.length}}</span>
+                                <span class="align-item-start text-lg-start"><svg style="margin: 2%;" width="30px"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <g id="User / User_Add">
+                                                <path id="Vector"
+                                                    d="M15 19C15 16.7909 12.3137 15 9 15C5.68629 15 3 16.7909 3 19M19 16V13M19 13V10M19 13H16M19 13H22M9 12C6.79086 12 5 10.2091 5 8C5 5.79086 6.79086 4 9 4C11.2091 4 13 5.79086 13 8C13 10.2091 11.2091 12 9 12Z"
+                                                    stroke="#000000" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round"></path>
+                                            </g>
+                                        </g>
+                                    </svg>{{user.[0].followers.length}}</span>
+                                <span class="align-item-start text-lg-start"><svg style="margin: 2%;" version="1.0"
+                                        id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="30px" viewBox="0 0 64 64"
+                                        enable-background="new 0 0 64 64" xml:space="preserve" fill="#000000">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path fill="#231F20"
+                                                d="M60,52V4c0-2.211-1.789-4-4-4H14v51v3h42v8H10c-2.209,0-4-1.791-4-4s1.791-4,4-4h2v-3V0H8 C5.789,0,4,1.789,4,4v54c0,3.313,2.687,6,6,6h49c0.553,0,1-0.447,1-1s-0.447-1-1-1h-1v-8C59.104,54,60,53.104,60,52z M23,14h12 c0.553,0,1,0.447,1,1s-0.447,1-1,1H23c-0.553,0-1-0.447-1-1S22.447,14,23,14z M42,28H23c-0.553,0-1-0.447-1-1s0.447-1,1-1h19 c0.553,0,1,0.447,1,1S42.553,28,42,28z M49,22H23c-0.553,0-1-0.447-1-1s0.447-1,1-1h26c0.553,0,1,0.447,1,1S49.553,22,49,22z">
+                                            </path>
+                                        </g>
+                                    </svg>{{user.[0].readed.length}}</span>
+                                <span class="align-item-start text-lg-start"><svg style="width: 30px; margin:2%"
+                                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z"
+                                                fill="#000000"></path>
+                                        </g>
+                                    </svg>{{user.[0].views}}</span>
                             </div>
                         </div>
                         <div class="order-sm-first col-lg-4 col-sm-2 ">
                             <img class="profile_photo" src="{{user.[0].profile_photo}}" alt="">
                         </div>
-                        <div class="col-lg-2 col-sm-2"></div>
-                        <div class="col-lg-2 col-sm-2">
+                        <div class="col-lg-1 col-sm-2"></div>
+                        <div class="col-lg-3 col-sm-2">
 
                             {{#if me}}
-                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"  data-user="{{user.[0]._id}}" >Seguir</button>
+                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"
+                                data-user="{{user.[0]._id}}">Seguir</button>
                             {{else}}
 
                             {{/if}}
-                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"  data-user="{{user.[0]._id}}" >Seguir</button>
+                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"
+                                data-user="{{user.[0]._id}}">Seguir</button>
 
                             {{#if me}}
                             {{else}}
-                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"  data-user="{{user.[0]._id}}">Mensaje</button>
+                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"
+                                data-user="{{user.[0]._id}}">Mensaje</button>
 
                             {{/if}}
 
                             {{#if me}}
-                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;" data-user="{{user.[0]._id}}">Publicar</button>
+                            <button class="btn btn-outline w-100 m-lg-1 mx-sm-0" style="border-color: plum;"
+                                data-user="{{user.[0]._id}}">Publicar</button>
                             {{else}}
 
                             {{/if}}
                         </div>
-                        
+
                     </div>
                 </div>
                 <h2>{{user.[0].[name]}}</h2>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-floating mb-3 sm-2">
-                        <input type="text" class="form-control form-control-sm" placeholder="Nombre" name="name" value="{{user.[0].name}}">
-                        <label for="">Nombre</label>
+            <div class="col-lg-12 col-sm-12 p-0 m-0">
+                <div id="carrouselGenero" class="carousel slide" data-bs-ride="false"
+                    style="width:100%;">
+                    <div class="carousel-inner">
+                        {{> profile/carousel/userData}}
+                        {{> profile/carousel/userSocial}}
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating mb-3 sm-2">
-                        <input type="number" class="form-control form-control-sm" placeholder="Nombre" name="age" value="{{user.[0].age}}">
-                        <label for="">Edad</label>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-floating mb-3 sm-2">
-                        <input type="text" class="form-control form-control-sm" placeholder="Pais" name="country" value="{{user.[0].country}}">
-                        <label for="">Pais</label>
-                    </div>
-                </div>
-                {{#if me}}
-                <div class="col-md-6">
-                    <div class="form-floating mb-3 sm-2">
-                        <input disabled type="email" class="form-control form-control-sm" placeholder="Nombre" name="email" value="{{user.[0].email}}">
-                        <label  for="">Email</label>
-                    </div>
-                </div>
-                {{/if}}
-                <div class="col-md-6">
-                    <div class="form-floating mb-3 sm-2">
-                        <input type="text" class="form-control form-control-sm" placeholder="Ciudad" name="city" value="{{user.[0].city}}">
-                        <label for="">Ciudad</label>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carrouselGenero"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carrouselGenero"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
-
     </div>
     <div class="col-md-4">
         {{#if me}}
@@ -150,8 +174,10 @@
                         </div>
                         <div class="col-10">
                             <div class="row">
-                                <button class="btn btn-outline-dark p-1 m-1" style="border-color: darkgrey;">Ganar</button>
-                                <button class="btn btn-outline-dark p-1 m-1" style="border-color: darkgrey;">Comprar</button>
+                                <button class="btn btn-outline-dark p-1 m-1"
+                                    style="border-color: darkgrey;">Ganar</button>
+                                <button class="btn btn-outline-dark p-1 m-1"
+                                    style="border-color: darkgrey;">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -160,7 +186,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    
+
                 </div>
             </div>
         </div>
@@ -177,8 +203,10 @@
                         </div>
                         <div class="col-10">
                             <div class="row">
-                                <button class="btn btn-outline-dark p-1 m-1" style="border-color: darkgrey;">Ganar</button>
-                                <button class="btn btn-outline-dark p-1 m-1" style="border-color: darkgrey;">Comprar</button>
+                                <button class="btn btn-outline-dark p-1 m-1"
+                                    style="border-color: darkgrey;">Ganar</button>
+                                <button class="btn btn-outline-dark p-1 m-1"
+                                    style="border-color: darkgrey;">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -187,7 +215,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    
+
                 </div>
             </div>
         </div>
@@ -201,8 +229,10 @@
                         </div>
                         <div class="col-10">
                             <div class="row">
-                                <button class="btn btn-outline-dark p-1 m-1" style="border-color: darkgrey;">Ganar</button>
-                                <button class="btn btn-outline-dark p-1 m-1" style="border-color: darkgrey;">Comprar</button>
+                                <button class="btn btn-outline-dark p-1 m-1"
+                                    style="border-color: darkgrey;">Ganar</button>
+                                <button class="btn btn-outline-dark p-1 m-1"
+                                    style="border-color: darkgrey;">Comprar</button>
                             </div>
                         </div>
                     </div>
@@ -211,7 +241,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    
+
                 </div>
             </div>
         </div>

@@ -30,16 +30,22 @@ router.get('/authors', async function (req, res, _next) {
     let author = req.params.author
     var stories = await db.getDb('sagpic_lector', 'stories', { author:req.params.author })
     var authorData = await db.getDb('sagpic_lector', 'users', { _id: new ObjectId( req.params.author)})
-    console.log(authorData);
+    var ids = []
+    authorData[0].books.forEach(e=>{
+       ids.push(e)
+    })
+      var obj_ids = ids.map(function(id) { return new ObjectId(id); });
+    let storyMeta = await db.getDb('sagpic_lector','stories',{_id:{$in: obj_ids}})
+
     res.render('layouts/authors',
       {
-        title: 'Sagpic - ' + authorData.authorName,
+        title: 'Sagpic - ' + authorData[0].name,
         loggedIn: req.session.user,
         menu:await menuFill,
         stories: stories,
         author: author,
-        user: stories,
-        userData:authorData
+        userData:authorData,
+        storyMeta:storyMeta,
 
   
       },
