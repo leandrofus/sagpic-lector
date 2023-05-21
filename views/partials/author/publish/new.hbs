@@ -1,35 +1,35 @@
 <style>
     #carrouselGenero {
-        height: 40vh;
-        max-height: 60vh;
+        height: 65vh;
     }
 </style>
 <div class="row text-center">
     <div class="col-md-0 d-none"></div>
-    <div class="col-md-10 mt-5">
+    <div class="col-md-10 mt">
         <div class="card bg-light">
             <div class="card-title">
-                <h2>Publicar Novela</h2>
             </div>
             <div class="card-body">
                 <div class="col-lg-12 col-sm-12 p-0 m-0">
                     <div id="carrouselGenero" class="carousel slide" data-bs-ride="false" style="width:100%;"
-                        data-bs-interval="false" data-bs-touch="false">
-                        <div class="carousel-inner">
-                            
+                        data-bs-interval="false" data-bs-touch="false" data-bs-wrap="false">
+                        <div class="carousel-inner h-100">          
                             {{>author/publish/carousel/slide1}}
                             {{>author/publish/carousel/slide2}}
+                            {{>author/publish/carousel/slide3}}
+                            {{>author/publish/carousel/slide4}}
+                            {{>author/publish/carousel/slide5}}
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center align-items-center my-4">
                         <div class="col-6 text-center">
-                            <button class="btn btn-success" type="button" data-bs-target="#carrouselGenero"
+                            <button  class="btn btn-outline w-100" style=" background-color: plum;" type="button" data-bs-target="#carrouselGenero"
                                 data-bs-slide="prev">
                                 <span class="">Previous</span>
                             </button>
                         </div>
-                        <div class="col-6">
-                            <button class="btn btn-success" type="button" data-bs-target="#carrouselGenero"
+                        <div class="col-6 text-center">
+                            <button class="btn btn-outline w-100" style=" background-color: plum;" type="button" data-bs-target="#carrouselGenero"
                                 data-bs-slide="next">
                                 <span class="">Next</span>
                             </button>
@@ -43,3 +43,9 @@
 
     </div>
 </div>
+<script>
+    $(document).ready(function(e){
+        console.log(e)
+        $('footer').css('display','none')
+    })
+</script>
