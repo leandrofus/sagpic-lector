@@ -1,0 +1,45 @@
+<style>
+    #carrouselGenero {
+        height: 40vh;
+        max-height: 60vh;
+    }
+</style>
+<div class="row text-center">
+    <div class="col-md-0 d-none"></div>
+    <div class="col-md-10 mt-5">
+        <div class="card bg-light">
+            <div class="card-title">
+                <h2>Publicar Novela</h2>
+            </div>
+            <div class="card-body">
+                <div class="col-lg-12 col-sm-12 p-0 m-0">
+                    <div id="carrouselGenero" class="carousel slide" data-bs-ride="false" style="width:100%;"
+                        data-bs-interval="false" data-bs-touch="false">
+                        <div class="carousel-inner">
+                            
+                            {{>author/publish/carousel/slide1}}
+                            {{>author/publish/carousel/slide2}}
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center my-4">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-success" type="button" data-bs-target="#carrouselGenero"
+                                data-bs-slide="prev">
+                                <span class="">Previous</span>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-success" type="button" data-bs-target="#carrouselGenero"
+                                data-bs-slide="next">
+                                <span class="">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>

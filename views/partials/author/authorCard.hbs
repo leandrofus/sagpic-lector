@@ -4,14 +4,14 @@
             <h2 class="card-title text-center">{{this.name}}</h2>
             <hr class="mb-0">
             <div class="col-sm-12 col-md-8 poster-photo" style="background-image: url('{{this.profile_photo}}');">
-            </div>
                 <div class="d-sm-block d-md-none">
                     <img width="100%" src="{{this.profile_photo}}" alt="">
                 </div>
+            </div>
             <div class="col-md-4">
-                <div class="card-body">
-                    <div class="row d-flex g-4 justify-content-evenly">
-                        <div class="col-4 d-flex text-center justify-content-evenly">
+                <div class="card-body pt-0">
+                    <div class="row d-flex flex-column justify-content-around">
+                        <div class="col-4 d-flex text-center justify-content-space-around">
                             <p class="card-text"> <span> <svg style="width: 30px" viewBox="0 0 24 24" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -25,8 +25,7 @@
                                     </svg>
                                 </span> {{this.views}}</p>
                         </div>
-                        <div class="col-4 d-flex text-center justify-content-evenly">
-
+                        <div class="col-4 d-flex text-center justify-content-space-around">
                             <p class="card-text"> <span> <svg style="width:30px" fill="#000000" viewBox="0 0 32 32"
                                         version="1.1" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -39,7 +38,7 @@
                                         </g>
                                     </svg></span> {{this.likes}}</p>
                         </div>
-                        <div class="col-4 d-flex text-center justify-content-evenly">
+                        <div class="col-4 d-flex text-center justify-content-space-around">
                             <p class="card-text"> <span> <svg style="width: 30px;" fill="#000000"
                                         viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
