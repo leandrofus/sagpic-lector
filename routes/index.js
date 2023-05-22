@@ -6,6 +6,7 @@ const menuFill = require('./init')().then((res)=>{
   return res
 });
 router.get('/', async function (req, res, next) {
+  res.setHeader('Referrer-Policy',"No-referrer-when-downgrade")
   res.render('layouts/index',
     {
       title: 'Sagpic',
