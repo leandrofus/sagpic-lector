@@ -43,7 +43,7 @@ router.post('/login', async function (req, res, _next) {
     res.send('http://localhost:3000/profile/me')
 
   } else {
-    res.send('Credenciales no validas')
+    res.sendStatus(403,'Credenciales no validas')
   }
 });
 
@@ -84,7 +84,8 @@ console.log(a);
 
 router.get('/logout', async function (req, res, _next) {
   req.session.destroy()
-
+  res.clearCookie('g_state');
+  console.log('logout');
   res.redirect('/')
 })
 

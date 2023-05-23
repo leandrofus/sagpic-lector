@@ -24,7 +24,7 @@
 </style>
 <div class="row d-flex d-sx-none">
     <div class="col background-jumbo">
-        <div class="row align-items-center py-2" style="height: 265px;">
+        <div class="row align-items-center py-2">
             <div class="col-lg-6 text-center text-lg-start">
                 <h1 class="display-3 fw-bold lh-1 mb-3" style="color: aliceblue ;">Sagpic</h1>
                 <p class="col-lg-4 fs-4" style="color: aliceblue;">Tu sitio de lectura</p>
@@ -42,38 +42,32 @@
                 </div>
             </div>
             {{else}}
-            <div class="mx-auto col-lg-6 jumbotron-form  bg-light">
-                <form class="p-lg-2 border d-flex rounded-3" id="loginForm">
+            <div class="mx-auto col-lg-6">
+                <form class="border rounded-3 bg-light jumbotron-form" id="loginForm">
                     <div class="col-12">
-
                         <div class="form-floating mb-3">
                             <input type="email" class="form-control form-control-lg form-control-sm" id="floatingInput"
-                                placeholder="name@example.com" name="email">
+                                placeholder="name@example.com" required name="email">
                             <label for="floatingInput">Email</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                            <input type="password" class="form-control" required id="floatingPassword" placeholder="Password"
                                 name="password">
                             <label for="floatingPassword">Password</label>
                         </div>
+                        <div id="res"></div>
                         <div class="i">
+                            <div class="g_id_signin mb-3" data-type="standard" data-theme="outline"
+                                data-text="signin_with" data-size="medium" data-logo_alignment="left"
+                                data-skip_prompt_cookie="g_state">
+                            </div>
                             <button class="mx-6 btn btn btn-primary" type="button" data-bs-toggle="modal"
                                 data-bs-target="#modalRegister">Registrarse</button>
                             <button class="mx-6 btn btn btn-primary" id="loginBtn" type="button">Login</button>
                         </div>
                     </div>
-                </form>
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-6">
-                <div class="g_id_signin text-center" data-type="standard" data-shape="pill" data-theme="outline"
-                    data-text="signin_with" data-size="large" data-logo_alignment="left"
-                    data-skip_prompt_cookie="g_state">
-                </div>
 
-                    </div>
-                    <div class="col-3"></div>
-                </div>
+                </form>
             </div>
             <script>
                 $('#loginBtn').on('click', function (e) {
@@ -82,15 +76,19 @@
                     $.each($('#loginForm').serializeArray(), function () {
                         result[this.name] = this.value;
                     });
+                    if(result.email.length > 5 && result.password.length > 6){
+
                     $.ajax({
                         url: '/login',
                         method: 'post',
                         data: result,
                         success: function (res) {
                             window.location.href = res
-
-                        }
+                        },
                     })
+                    }else{
+                        $('#res').html('<h5 style="color:red">Datos no validos</h5">')
+                    }
                 })
             </script>
 
