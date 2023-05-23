@@ -9,18 +9,18 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+
     .jumbotron-form {
         text-align: center;
         background-color: seashell;
     }
-    .profile-logged{
+
+    .profile-logged {
         border-radius: 100%;
         object-fit: cover;
     }
-.background-jumbo{
 
-}
-
+    .background-jumbo {}
 </style>
 <div class="row d-flex d-sx-none">
     <div class="col background-jumbo">
@@ -32,9 +32,7 @@
             {{#if loggedIn}}
             <div class="mx-auto col-lg-6">
                 <div class="p-lg-2 border rounded-3 bg-light jumbotron-form">
-                    <img class="profile-logged" width="100" height="100"
-                        src="{{loggedIn.profile_photo}}"
-                        alt="">
+                    <img class="profile-logged" width="100" height="100" src="{{loggedIn.profile_photo}}" alt="">
                     <h3 class="">Actualmente leyendo</h3>
                     <ul style="text-align-last: start;">
                         <li>...</li>
@@ -44,27 +42,38 @@
                 </div>
             </div>
             {{else}}
-            <div class="mx-auto col-lg-6">
-                <form class="p-lg-2 border rounded-3 bg-light jumbotron-form" id="loginForm">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control form-control-lg form-control-sm" id="floatingInput" placeholder="name@example.com"
-                            name="email">
-                        <label for="floatingInput">Email</label>
+            <div class="mx-auto col-lg-6 jumbotron-form  bg-light">
+                <form class="p-lg-2 border d-flex rounded-3" id="loginForm">
+                    <div class="col-12">
+
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control form-control-lg form-control-sm" id="floatingInput"
+                                placeholder="name@example.com" name="email">
+                            <label for="floatingInput">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                                name="password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="i">
+                            <button class="mx-6 btn btn btn-primary" type="button" data-bs-toggle="modal"
+                                data-bs-target="#modalRegister">Registrarse</button>
+                            <button class="mx-6 btn btn btn-primary" id="loginBtn" type="button">Login</button>
+                        </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-                            name="password">
-                        <label for="floatingPassword">Password</label>
-                    </div>
-                    <div class="checkbox mb-3">
-                        <label class="text-muted">
-                            <input type="checkbox" value="remember-me"> Recuerdame
-                        </label>
-                    </div>
-                    <button class="mx-6 btn btn btn-primary" type="button" data-bs-toggle="modal"
-                        data-bs-target="#modalRegister">Registrarse</button>
-                    <button class="mx-6 btn btn btn-primary" id="loginBtn" type="button">Login</button>
                 </form>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                <div class="g_id_signin text-center" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left"
+                    data-skip_prompt_cookie="g_state">
+                </div>
+
+                    </div>
+                    <div class="col-3"></div>
+                </div>
             </div>
             <script>
                 $('#loginBtn').on('click', function (e) {
@@ -76,7 +85,7 @@
                     $.ajax({
                         url: '/login',
                         method: 'post',
-                        data:  result,
+                        data: result,
                         success: function (res) {
                             window.location.href = res
 

@@ -36,8 +36,8 @@ async function postDb(db, collection, data) {
         var Db = client.db(db);
         switch (collection) {
             case 'users':
-                console.log('users');
-                await Db.collection(collection).insertOne(
+                console.log(data);
+                return await Db.collection(collection).insertOne(
                     {
                         name: data.name,
                         email: data.email, 
@@ -51,8 +51,8 @@ async function postDb(db, collection, data) {
                         age:data.age,
                         country: data.country || '', 
                         city: data.city || '', 
-                        type: data.type || '', 
-                        profile_photo: 'https://soe.ukzn.ac.za/wp-content/uploads/2018/04/profile-placeholder.png',
+                        type: data.type || 'reader', 
+                        profile_photo: data.picture|| 'https://soe.ukzn.ac.za/wp-content/uploads/2018/04/profile-placeholder.png',
                         bio: data.bio || '',
                         // books:Array(data.book), 
                         // likes: Array(data.links),
@@ -72,7 +72,7 @@ async function postDb(db, collection, data) {
     } finally {
         client.close();
     }
-    return
+    
 }
 async function addFollower(db, collection, data) {
     var result = []
